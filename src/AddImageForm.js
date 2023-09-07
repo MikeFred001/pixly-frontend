@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 
-
+/** */
 function AddImageForm() {
   const [formData, setFormData] = useState({ title: ""});
   const [image, setImage] = useState("");
@@ -10,28 +10,28 @@ function AddImageForm() {
 
   console.log("Image", image, "Image TYPE", typeof image, "Title", formData.title);
 
+  /** */
   function handleChange(evt) {
     const { value } = evt.target;
     setFormData({ title: value });
   }
 
+  /** */
   function handleImage(evt) {
     const { files } = evt.target;
     setImage(files[0]);
-
   }
 
-
+  /** */
   function handleApi(evt) {
     evt.preventDefault();
     const fd = new FormData();
     fd.append("image", image, image.name);
 
 
-    axios.post("http://localhost:5001/api/imagesToS3", fd)
+    axios.post("http://localhost:5002/api/imagesToS3", fd)
       .then(res => console.log(res));
   }
-
 
   return (
     <form onSubmit={handleApi} style={ { marginTop: "50px" } }>
