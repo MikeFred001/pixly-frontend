@@ -7,7 +7,6 @@ function AddImageForm() {
   const [formData, setFormData] = useState({ title: "" });
   const [image, setImage] = useState("");
 
-
   console.log("Image", image, "Image TYPE", typeof image, "Title", formData.title);
 
   /** */
@@ -26,15 +25,14 @@ function AddImageForm() {
   function handleApi(evt) {
     evt.preventDefault();
 
-    const otherData = {
-      title: formData.title,
-      name: image.name
-    }
+    const imageTitle = JSON.stringify(formData)
+    const blob = new Blob([imageTitle], {type: "application/json"})
 
     const fd = new FormData();
     fd.append("image", image, image.name);
+    fd.append("title", blob);
 
-    axios.post("http://localhost:5002/api/images", fd)
+    axios.post("http://localhost:5005/api/images", fd)
       .then(res => console.log(res));
   }
 
