@@ -4,7 +4,7 @@ import axios from "axios";
 
 /** */
 function AddImageForm() {
-  const [formData, setFormData] = useState({ title: ""});
+  const [formData, setFormData] = useState({ title: "" });
   const [image, setImage] = useState("");
 
 
@@ -25,16 +25,21 @@ function AddImageForm() {
   /** */
   function handleApi(evt) {
     evt.preventDefault();
+
+    const otherData = {
+      title: formData.title,
+      name: image.name
+    }
+
     const fd = new FormData();
     fd.append("image", image, image.name);
 
-
-    axios.post("http://localhost:5002/api/imagesToS3", fd)
+    axios.post("http://localhost:5002/api/images", fd)
       .then(res => console.log(res));
   }
 
   return (
-    <form onSubmit={handleApi} style={ { marginTop: "50px" } }>
+    <form onSubmit={ handleApi } style={ { marginTop: "50px" } }>
       <label htmlFor="title">
         Title
         <input style={ { margin: "10px" } }
