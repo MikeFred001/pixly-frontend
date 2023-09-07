@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
-const formD2 = new FormData();
-formD2.append('adsfasdf', 'asfawefasdf');
-console.log("FORMD2", formD2);
+
 
 function AddImageForm() {
-  const [formData, setFormData] = useState({ title: "", image: ""});
+  const [formData, setFormData] = useState({ title: ""});
+  const [image, setImage] = useState("");
 
-  console.log("Image", formData.image, "Title", formData.title);
+
+  console.log("Image", image, "Title", formData.title);
 
   function handleChange(evt) {
     const { value } = evt.target;
@@ -17,26 +17,29 @@ function AddImageForm() {
 
   function handleImage(evt) {
     const { files } = evt.target;
-    setFormData({
-      ...formData,
-      image: files[0]
-    });
+    // setFormData({
+    //   ...formData,
+    //   image: files[0]
+    // });
+    setImage(files[0]);
   }
 
-  function handleApi() {
+
+  function handleApi(evt) {
     // const formD = new FormData();
     // formD.append('image', image);
+    evt.preventDefault();
     const data = {
       title: formData.title,
-      file: formData.image
+      url: ""
     }
-    axios.post('http://localhost:5001/api/images', data)
-      .then(res => console.log(res));
+    axios.post('http://localhost:5000/api/images', data)
+      .then(res => console.log(res.data));
   }
 
 
   return (
-    <form onSubmit={ handleApi } style={ { marginTop: "50px" } }>
+    <form onSubmit={handleApi} style={ { marginTop: "50px" } }>
       <label htmlFor="title">
         Title
         <input style={ { margin: "10px" } }
