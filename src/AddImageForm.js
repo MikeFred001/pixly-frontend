@@ -8,7 +8,7 @@ function AddImageForm() {
   const [image, setImage] = useState("");
 
 
-  console.log("Image", image, "Title", formData.title);
+  console.log("Image", image, "Image TYPE", typeof image, "Title", formData.title);
 
   function handleChange(evt) {
     const { value } = evt.target;
@@ -17,25 +17,36 @@ function AddImageForm() {
 
   function handleImage(evt) {
     const { files } = evt.target;
-    // setFormData({
-    //   ...formData,
-    //   image: files[0]
-    // });
     setImage(files[0]);
+
+
+    // fileToDataUri(files[0])
+    //   .then(dataUri => {
+    //   setImage(datari)
+    // })
   }
+
 
 
   function handleApi(evt) {
-    // const formD = new FormData();
-    // formD.append('image', image);
     evt.preventDefault();
     const data = {
       title: formData.title,
-      url: ""
+      imageData: image,
+      url: "fakeurl.com"
     }
-    axios.post('http://localhost:5000/api/images', data)
+
+    axios.post('http://localhost:5001/api/images', data)
       .then(res => console.log(res.data));
   }
+
+  const fileToDataUri = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+        resolve(evt.target.result)
+    };
+    reader.readAsDataURL(file);
+});
 
 
   return (
