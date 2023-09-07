@@ -19,34 +19,18 @@ function AddImageForm() {
     const { files } = evt.target;
     setImage(files[0]);
 
-
-    // fileToDataUri(files[0])
-    //   .then(dataUri => {
-    //   setImage(datari)
-    // })
   }
-
 
 
   function handleApi(evt) {
     evt.preventDefault();
-    const data = {
-      title: formData.title,
-      imageData: image,
-      url: "fakeurl.com"
-    }
+    const fd = new FormData();
+    fd.append("image", image, image.name);
 
-    axios.post('http://localhost:5001/api/images', data)
-      .then(res => console.log(res.data));
+
+    axios.post("http://localhost:5001/api/imagesToS3", fd)
+      .then(res => console.log(res));
   }
-
-  const fileToDataUri = (file) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (evt) => {
-        resolve(evt.target.result)
-    };
-    reader.readAsDataURL(file);
-});
 
 
   return (
