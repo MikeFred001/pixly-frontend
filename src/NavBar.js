@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
+import "./NavBar.css";
 
 
 /** Renders NavBar
@@ -15,7 +16,7 @@ function NavBar() {
       <div className="NavBar-container">
         <NavLink className="NavBar-home" to="/">PIXLY</NavLink>
 
-          <NavLink to="/upload">Upload Photo</NavLink>
+        <NavLink className="NavBar-upload" to="/upload">Upload Photo</NavLink>
       </div>
     </nav>
   );

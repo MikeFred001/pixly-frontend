@@ -8,11 +8,11 @@ import "./Image.css";
  *
  * ImageList -> Image */
 
-function Image({ image }) {
+function Image({ image, viewImage }) {
 
   return (
     <div className="Image">
-      <img src={ image.url } alt={ image.file_name } />
+      <img onClick={ () => viewImage(image.id) }id={ image.id } src={ image.url } alt={ image.file_name } />
     </div>
   )
 }

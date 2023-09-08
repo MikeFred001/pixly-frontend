@@ -43,8 +43,6 @@ function App() {
       i.model?.includes(searchTerm) ||
       i.date_time?.includes(searchTerm)))
     }
-
-
   }
 
   if (isLoading) {

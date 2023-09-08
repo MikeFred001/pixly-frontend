@@ -1,0 +1,16 @@
+.SelectedImage {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.SelectedImage-img {
+  width:70%;
+  height: auto;
+  box-shadow: 5px 5px 10px rgba(100, 100, 100, .8);
+}

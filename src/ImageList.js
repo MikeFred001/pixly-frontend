@@ -9,11 +9,10 @@ import "./ImageList.css";
  * State: none
  *
  * Home -> ImageList -> Image */
-
-function ImageList({ images }) {
+function ImageList({ images, viewImage }) {
   return (
     <div className="ImageList">
-      { images.map(image => <Image image={ image } />) }
+      { images.map(image => <Image image={ image } viewImage={ viewImage } />) }
     </div>
   )
 }

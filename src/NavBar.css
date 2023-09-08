@@ -1,0 +1,22 @@
+.NavBar-container {
+  margin: auto;
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.NavBar-container > * {
+  text-decoration: none;
+  font-family: "impact";
+  font-size: 1.5rem;
+  color: rgb(59, 59, 255);
+}
+
+.Navbar-home:hover {
+  scale: 1.1;
+}
+
+.NavBar-upload:hover {
+  scale: 1.1;
+}
