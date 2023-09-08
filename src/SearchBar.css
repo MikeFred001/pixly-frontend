@@ -1,0 +1,35 @@
+
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.SearchBar-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SearchBar-input {
+  height: 27px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border: none;
+  padding: 3px 10px;
+  width: 80%;
+  border: 2px solid rgb(18, 125, 251);
+}
+
+.SearchBar-btn {
+  width: 20%;
+  height: 36px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border: none;
+  background-color: rgb(18, 125, 251);
+  color: white;
+  font-weight: bold;
+}
