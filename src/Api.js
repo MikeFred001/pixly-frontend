@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_API_URL = "http://localhost:5000/api"; // host may change
+const BASE_API_URL = "http://localhost:5002/api"; // host may change
 
 class PixlyApi {
 

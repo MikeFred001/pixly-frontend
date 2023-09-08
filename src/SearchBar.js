@@ -12,9 +12,8 @@ import "./SearchBar.css";
  *
  * Home -> SearchBar */
 
-function SearchBar({ images }) {
+function SearchBar({ filter }) {
   const [formData, setFormData] = useState({ searchTerm: "" });
-
   console.log("FORM DATA", formData);
 
   /** Handles updating search form when user types */
@@ -24,28 +23,30 @@ function SearchBar({ images }) {
       ...formData,
       [name]: value,
     }));
+
+    filter(formData.searchTerm);
   }
 
   /** Handles sending search term to callback function */
-  function handleSubmit(evt) {
-    evt.preventDefault();
+  // function handleSubmit(evt) {
+  //   evt.preventDefault();
 
-    // if no search term is provided, don't search again
-    if (formData.searchTerm.length > 0) filterList(formData.searchTerm);
+  //   // if no search term is provided, don't search again
+  //   if (formData.searchTerm.length > 0) filterList(formData.searchTerm);
 
-    setFormData({ searchTerm: "" });
-  }
+  //   setFormData({ searchTerm: "" });
+  // }
 
   return (
     <div className="SearchBar">
-      <form className="SearchBar-form" onSubmit={ handleSubmit }>
+      <form className="SearchBar-form">
         <label htmlFor="searchTerm"></label>
         <input className="SearchBar-input"
           id="searchTerm"
           name="searchTerm"
           value={ formData.searchTerm }
           onChange={ handleChange }
-          placeholder="Enter search term ..."
+          placeholder="Search by file name, device, year..."
         />
         <button className="SearchBar-btn">Search</button>
       </form>

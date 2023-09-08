@@ -11,13 +11,12 @@ import PixlyApi from './Api';
  *
  * Props: none
  *
- * State: images, ex. [{ id, file_name, url }, ...]
+ * State: images, ex. [{ id, make, model, date_time, file_name, url }, ...]
  *
  * App -> { Home, AddItemForm} */
 
 function App() {
   const [images, setImages] = useState([]);
-
 
   console.log("IMAGES", images);
 
@@ -34,6 +33,20 @@ function App() {
     getImages();
   }, []);
 
+  function filter(searchTerm) {
+    if (searchTerm === "") {
+      setImages(images)
+    } else {
+      setImages(images.filter(i =>
+      i.file_name?.includes(searchTerm) ||
+      i.make?.includes(searchTerm) ||
+      i.model?.includes(searchTerm) ||
+      i.date_time?.includes(searchTerm)))
+    }
+
+
+  }
+
   if (isLoading) {
     return <p>Loading &hellip;</p>;
   }
@@ -43,7 +56,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={ <Home images={ images } /> }/>
+          <Route path="/" element={ <Home images={ images } filter={ filter } /> }/>
 
           <Route path="/upload" element={ <AddImageForm /> }/>
 

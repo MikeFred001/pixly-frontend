@@ -11,11 +11,11 @@ import "./Home.css";
  *
  * App -> Home -> { SearchBar, ImageList } */
 
-function Home({ images }) {
+function Home({ images, filter }) {
 
   return (
     <div>
-      <SearchBar />
+      <SearchBar filter= { filter } />
       <ImageList images={ images } />
     </div>
   )
