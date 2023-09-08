@@ -21,7 +21,7 @@ function AddImageForm() {
     const fd = new FormData();
     fd.append("image", image, image.name);
 
-    axios.post("http://localhost:5002/api/images", fd)
+    axios.post("http://localhost:5000/api/images", fd)
       .then(res => console.log(res));
   }
 

@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_API_URL = "http://localhost:5002/api";
+const BASE_API_URL = "http://localhost:5000/api"; // host may change
 
 class PixlyApi {
 
-  /** Gets snack data from the snackorbooze api. */
+  /** Gets all images from the pixly api. */
   static async fetchImages() {
     const result = await axios.get(`${BASE_API_URL}/images`);
     return result.data.images;

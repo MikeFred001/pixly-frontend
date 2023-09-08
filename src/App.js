@@ -7,9 +7,17 @@ import NavBar from "./NavBar.js";
 import Home from "./Home.js";
 import PixlyApi from './Api';
 
+/** Renders PixlyApp
+ *
+ * Props: none
+ *
+ * State: images, ex. [{ id, file_name, url }, ...]
+ *
+ * App -> { Home, AddItemForm} */
+
 function App() {
   const [images, setImages] = useState([]);
-  // [ { id, file_name, url }, ... ]
+
 
   console.log("IMAGES", images);
 

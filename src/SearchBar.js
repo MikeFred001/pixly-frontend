@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SearchBar.css";
 
-/** Renders search form
+/** Renders search bar
  *
  * Props:
  *  - filterList(): callback function to JobList and CompanyList
@@ -10,7 +10,8 @@ import "./SearchBar.css";
  *  - formData like { searchTerm }
  *  -- searchTerm is key and always a string
  *
- * { JobList, CompanyList } -> SearchForm */
+ * Home -> SearchBar */
+
 function SearchBar({ images }) {
   const [formData, setFormData] = useState({ searchTerm: "" });
 

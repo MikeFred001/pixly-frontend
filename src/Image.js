@@ -1,5 +1,13 @@
 import "./Image.css";
 
+/** Renders Image
+ *
+ * Props: image, ex { id, file_name, url }
+ *
+ * State: none
+ *
+ * ImageList -> Image */
+
 function Image({ image }) {
 
   return (

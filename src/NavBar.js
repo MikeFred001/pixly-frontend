@@ -1,16 +1,14 @@
 import { NavLink, Link } from "react-router-dom";
 
 
-/** Navigation Menu
+/** Renders NavBar
  *
- * Props:
- *  - none
+ * Props: none
  *
- * State:
- *  - none
+ * State: none
  *
- * App -> NavBar
- * */
+ * App -> NavBar */
+
 function NavBar() {
   return (
     <nav className="NavBar">
